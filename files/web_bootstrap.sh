@@ -2,3 +2,6 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo service nginx start
+
+# Add the index.html file
+

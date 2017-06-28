@@ -22,7 +22,7 @@ resource "aws_instance" "web" {
   ami                         = "${lookup(var.ami, var.region)}"
   instance_type               = "${var.instance_type}"
   #key_name                    = "${var.key_name}"
-  key_name                    = "thomas.pub"
+  key_name                    = "tthomas.pub"
   subnet_id                   = "${module.vpc.public_subnet_id}"
   private_ip                  = "${var.instance_ips[count.index]}"
   user_data                   = "${file("files/web_bootstrap.sh")}"
@@ -91,7 +91,7 @@ resource "aws_security_group" "web_host_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["108.184.69.16/32"]
+    cidr_blocks = ["108.184.69.16/32", "70.183.17.147/32"]
   }
 
   # HTTP access from the VPC
